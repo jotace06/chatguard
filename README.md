@@ -150,12 +150,7 @@ sequenceDiagram
 
 파드를 2배로 늘렸는데 총 처리량이 그대로이고 개별 추론은 오히려 느려졌다는 것은, 워커들이 **유한한 공유 자원을 나눠 쓰고 있다**는 신호였습니다. 노드 CPU를 실측하니 3대 전부 0.97~0.99로 포화 상태였습니다.
 
-![노드 CPU 포화](https://raw.githubusercontent.com/CLD-05/team1-chatguard-context/main/load-test/captures/e3-cpu-nodes-workers.png)
-
-노드를 3→5로 증설하고 **동일한 부하 프로파일로 재측정**해 처리량 +72%를 확인했습니다.
-
-![노드 증설 후 처리량 회복](https://raw.githubusercontent.com/CLD-05/team1-chatguard-context/main/load-test/captures/e6-headline.png)
- 그리고 세 실험의 (파드당 가용 코어, 파드당 처리량) 쌍이 거의 선형이라는 것도 함께 확인됐습니다.
+노드를 3→5로 증설하고 **동일한 부하 프로파일로 재측정**해 처리량 +72%를 확인했습니다. 그리고 세 실험의 (파드당 가용 코어, 파드당 처리량) 쌍이 거의 선형이라는 것도 함께 확인됐습니다.
 
 > **처리량 ≈ 워커가 실제로 확보한 코어 총량 × 코어당 4.5~5.4 msg/s**
 
